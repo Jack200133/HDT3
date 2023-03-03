@@ -1,0 +1,150 @@
+---
+title: "HDT3"
+author: "Diego Franco, Jose Daniel Gonzalez, Juan Angel Carrera"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+set.seed(123)
+datos <- read.csv("train.csv")
+```
+
+### 1. Resumen del conjunto de datos.  
+
+El conjunto de datos está compuesto por `r nrow(datos)` filas
+y `r ncol(datos)` columnas.  
+
+El resumen del conjunto de datos es el siguiente:
+```{r echo=FALSE}
+summary(datos)
+```
+
+### 2. Tipo de cada una de las variables de dataset. 
+ID: Categorica 
+
+SalePrice: Cuantitativa
+MSSubClass: Cualitativa
+MSZoning: Cualitativa
+LotFrontage: Cuantitativa
+LotArea: Cuantitativa
+Street: Cualitativa
+Alley: Cualitativa
+LotShape: Cualitativa
+LandContour: Cualitativa
+Utilities: Cualitativa
+LotConfig: Cualitativsa
+LandSlope: Cualitativa
+Neighborhood: Cualitativa
+Condition1: Cualitativa
+Condition2: Cualitativa
+BldgType: Cualitativa
+HouseStyle: Cualitativa
+OverallQual: Cuantitativa
+OverallCond: Cuantitativa
+YearBuilt: Cualitativa
+YearRemodAdd: Cualitativa
+RoofStyle: Cualitativa
+RoofMatl: Cualitativa
+Exterior1st: Cualitativa
+Exterior2nd:  Cualitativa
+MasVnrType: Cualitativa
+MasVnrArea: Cuantitativa
+ExterQual: Cualitativa
+ExterCond: Cualitativa
+Foundation: Cualitativa
+BsmtQual: Cualitativa
+BsmtCond: Cualitativa
+BsmtExposure: Cualitativa
+BsmtFinType1: Cualitativa
+BsmtFinSF1: Cuantitativa
+BsmtFinType2: Cualitativa
+BsmtFinSF2: Cuantitativa
+BsmtUnfSF: Cuantitativa
+TotalBsmtSF: Cuantitativa
+Heating: Cualitativa
+HeatingQC: Cualitativa
+CentralAir: Cualitativa
+Electrical: Cualitativa
+1stFlrSF: Cuantitativa
+2ndFlrSF: Cuantitativa
+LowQualFinSF:Cualitativa
+GrLivArea: Cuantitativa
+BsmtFullBath: Cuantitativa
+BsmtHalfBath: Cuantitativa
+FullBath: Cuantitativa
+HalfBath: Cuantitativa
+Bedroom: Cuantitativa
+Kitchen: Cuantitativa
+KitchenQual: Cualitativa
+TotRmsAbvGrd: Cuantitativa
+Functional: Cualitativa
+Fireplaces: Cuantitativa
+FireplaceQu: Cualitativa
+GarageType: Cualitativa
+GarageYrBlt: Cualitativa
+GarageFinish: Cualitativa
+GarageCars: Cuantitativa
+GarageArea: Cuantitativa
+GarageQual: Cualitativa
+GarageCond: Cualitativa
+PavedDrive: Cualitativa
+WoodDeckSF: Cuantitativa
+OpenPorchSF: Cuantitativa
+EnclosedPorch: Cuantitativa
+3SsnPorch: Cuantitativa
+ScreenPorch: Cuantitativa
+PoolArea: Cuantitativa
+PoolQC: Cualitativa
+Fence: Cualitativa
+MiscFeature: Cualitativa
+MiscVal: Cuantitativa
+MoSold: Cualitativa
+YrSold: Cualitativa
+SaleType: Cualitativa
+SaleCondition: Cualitativa
+
+```{r echo=FALSE}
+sapply(datos, class)
+```
+
+## 3. Pruebas de normalidad para variables cuantitativas y tablas de frecuencia para variables cualitativas.
+
+
+```{r echo=FALSE}
+
+numeric_variables <- c("SalePrice", "LotFrontage", "LotArea", "OverallQual", "OverallCond", "MasVnrArea", "BsmtFinSF1", "BsmtFinSF2", "BsmtUnfSF", "TotalBsmtSF", "X1stFlrSF", "X2ndFlrSF", "LowQualFinSF", "GrLivArea", "BsmtFullBath", "BsmtHalfBath", "FullBath", "HalfBath", "BedroomAbvGr", "KitchenAbvGr", "TotRmsAbvGrd", "Fireplaces", "GarageCars", "GarageArea", "WoodDeckSF", "OpenPorchSF", "EnclosedPorch", "X3SsnPorch", "ScreenPorch", "PoolArea", "MiscVal")
+
+numericas <- datos[, numeric_variables]
+```
+
+### Qqnorms
+
+```{r echo=FALSE}
+for (i in 1:ncol(numericas)) {
+    qqnorm(numericas[, i], main = colnames(numericas)[i])
+    qqline(numericas[, i], col = "red")
+}
+```
+
+De las qqplots es posible observar que, visualmente, no se tiene ninguna distribución normal. Algunas de las variables que más se ajustan a la línea teórica son *SalePrice*, *LotFrontage*, *TotalBsmf*, *X1stFlrSF* y *GrLivArea*. Sin embargo, para estas las colas están alejadas bastante de la línea teórica. Para las demás variables, no se ve una relación adecuada con la línea teórica, existen muchas variables que se ven en gradas, como *GarageCars* o *Fireplaces*.
+
+### Prueba de normalidad con lilliefors
+```{r echo=FALSE}
+library(nortest)
+lillie_test <- sapply(numericas, function(x) lillie.test(x)$p.value)
+lillie_test
+```
+
+Se rechaza la hipotesis nula de normalidad para las variables: 
+    
+```{r echo=FALSE}   
+lillie_test[lillie_test < 0.05]
+```
+
+Esto se debe porque el valor p es menor a 0.05 para todas las variables y para que sea normal debe ser mayor. De forma que las variables cuantitativas no están distribuidas normalmente.
+

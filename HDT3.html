@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Diego Franco, Jose Daniel Gonzalez, Juan Angel Carrera">
+
+<title>HDT3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="HDT3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="HDT3_files/libs/quarto-html/quarto.js"></script>
+<script src="HDT3_files/libs/quarto-html/popper.min.js"></script>
+<script src="HDT3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="HDT3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="HDT3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="HDT3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="HDT3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="HDT3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="HDT3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">HDT3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Diego Franco, Jose Daniel Gonzalez, Juan Angel Carrera </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
+<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"train.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Id MSSubClass MSZoning LotFrontage LotArea Street Alley LotShape LandContour
+1  1         60       RL          65    8450   Pave  &lt;NA&gt;      Reg         Lvl
+2  2         20       RL          80    9600   Pave  &lt;NA&gt;      Reg         Lvl
+3  3         60       RL          68   11250   Pave  &lt;NA&gt;      IR1         Lvl
+4  4         70       RL          60    9550   Pave  &lt;NA&gt;      IR1         Lvl
+5  5         60       RL          84   14260   Pave  &lt;NA&gt;      IR1         Lvl
+6  6         50       RL          85   14115   Pave  &lt;NA&gt;      IR1         Lvl
+  Utilities LotConfig LandSlope Neighborhood Condition1 Condition2 BldgType
+1    AllPub    Inside       Gtl      CollgCr       Norm       Norm     1Fam
+2    AllPub       FR2       Gtl      Veenker      Feedr       Norm     1Fam
+3    AllPub    Inside       Gtl      CollgCr       Norm       Norm     1Fam
+4    AllPub    Corner       Gtl      Crawfor       Norm       Norm     1Fam
+5    AllPub       FR2       Gtl      NoRidge       Norm       Norm     1Fam
+6    AllPub    Inside       Gtl      Mitchel       Norm       Norm     1Fam
+  HouseStyle OverallQual OverallCond YearBuilt YearRemodAdd RoofStyle RoofMatl
+1     2Story           7           5      2003         2003     Gable  CompShg
+2     1Story           6           8      1976         1976     Gable  CompShg
+3     2Story           7           5      2001         2002     Gable  CompShg
+4     2Story           7           5      1915         1970     Gable  CompShg
+5     2Story           8           5      2000         2000     Gable  CompShg
+6     1.5Fin           5           5      1993         1995     Gable  CompShg
+  Exterior1st Exterior2nd MasVnrType MasVnrArea ExterQual ExterCond Foundation
+1     VinylSd     VinylSd    BrkFace        196        Gd        TA      PConc
+2     MetalSd     MetalSd       None          0        TA        TA     CBlock
+3     VinylSd     VinylSd    BrkFace        162        Gd        TA      PConc
+4     Wd Sdng     Wd Shng       None          0        TA        TA     BrkTil
+5     VinylSd     VinylSd    BrkFace        350        Gd        TA      PConc
+6     VinylSd     VinylSd       None          0        TA        TA       Wood
+  BsmtQual BsmtCond BsmtExposure BsmtFinType1 BsmtFinSF1 BsmtFinType2
+1       Gd       TA           No          GLQ        706          Unf
+2       Gd       TA           Gd          ALQ        978          Unf
+3       Gd       TA           Mn          GLQ        486          Unf
+4       TA       Gd           No          ALQ        216          Unf
+5       Gd       TA           Av          GLQ        655          Unf
+6       Gd       TA           No          GLQ        732          Unf
+  BsmtFinSF2 BsmtUnfSF TotalBsmtSF Heating HeatingQC CentralAir Electrical
+1          0       150         856    GasA        Ex          Y      SBrkr
+2          0       284        1262    GasA        Ex          Y      SBrkr
+3          0       434         920    GasA        Ex          Y      SBrkr
+4          0       540         756    GasA        Gd          Y      SBrkr
+5          0       490        1145    GasA        Ex          Y      SBrkr
+6          0        64         796    GasA        Ex          Y      SBrkr
+  X1stFlrSF X2ndFlrSF LowQualFinSF GrLivArea BsmtFullBath BsmtHalfBath FullBath
+1       856       854            0      1710            1            0        2
+2      1262         0            0      1262            0            1        2
+3       920       866            0      1786            1            0        2
+4       961       756            0      1717            1            0        1
+5      1145      1053            0      2198            1            0        2
+6       796       566            0      1362            1            0        1
+  HalfBath BedroomAbvGr KitchenAbvGr KitchenQual TotRmsAbvGrd Functional
+1        1            3            1          Gd            8        Typ
+2        0            3            1          TA            6        Typ
+3        1            3            1          Gd            6        Typ
+4        0            3            1          Gd            7        Typ
+5        1            4            1          Gd            9        Typ
+6        1            1            1          TA            5        Typ
+  Fireplaces FireplaceQu GarageType GarageYrBlt GarageFinish GarageCars
+1          0        &lt;NA&gt;     Attchd        2003          RFn          2
+2          1          TA     Attchd        1976          RFn          2
+3          1          TA     Attchd        2001          RFn          2
+4          1          Gd     Detchd        1998          Unf          3
+5          1          TA     Attchd        2000          RFn          3
+6          0        &lt;NA&gt;     Attchd        1993          Unf          2
+  GarageArea GarageQual GarageCond PavedDrive WoodDeckSF OpenPorchSF
+1        548         TA         TA          Y          0          61
+2        460         TA         TA          Y        298           0
+3        608         TA         TA          Y          0          42
+4        642         TA         TA          Y          0          35
+5        836         TA         TA          Y        192          84
+6        480         TA         TA          Y         40          30
+  EnclosedPorch X3SsnPorch ScreenPorch PoolArea PoolQC Fence MiscFeature
+1             0          0           0        0   &lt;NA&gt;  &lt;NA&gt;        &lt;NA&gt;
+2             0          0           0        0   &lt;NA&gt;  &lt;NA&gt;        &lt;NA&gt;
+3             0          0           0        0   &lt;NA&gt;  &lt;NA&gt;        &lt;NA&gt;
+4           272          0           0        0   &lt;NA&gt;  &lt;NA&gt;        &lt;NA&gt;
+5             0          0           0        0   &lt;NA&gt;  &lt;NA&gt;        &lt;NA&gt;
+6             0        320           0        0   &lt;NA&gt; MnPrv        Shed
+  MiscVal MoSold YrSold SaleType SaleCondition SalePrice
+1       0      2   2008       WD        Normal    208500
+2       0      5   2007       WD        Normal    181500
+3       0      9   2008       WD        Normal    223500
+4       0      2   2006       WD       Abnorml    140000
+5       0     12   2008       WD        Normal    250000
+6     700     10   2009       WD        Normal    143000</code></pre>
+</div>
+</div>
+<section id="resumen-del-conjunto-de-datos." class="level3">
+<h3 class="anchored" data-anchor-id="resumen-del-conjunto-de-datos.">1. Resumen del conjunto de datos.</h3>
+<p>El conjunto de datos está compuesto por 1460 filas y 81 columnas.</p>
+<p>El resumen del conjunto de datos es el siguiente:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>       Id           MSSubClass      MSZoning          LotFrontage    
+ Min.   :   1.0   Min.   : 20.0   Length:1460        Min.   : 21.00  
+ 1st Qu.: 365.8   1st Qu.: 20.0   Class :character   1st Qu.: 59.00  
+ Median : 730.5   Median : 50.0   Mode  :character   Median : 69.00  
+ Mean   : 730.5   Mean   : 56.9                      Mean   : 70.05  
+ 3rd Qu.:1095.2   3rd Qu.: 70.0                      3rd Qu.: 80.00  
+ Max.   :1460.0   Max.   :190.0                      Max.   :313.00  
+                                                     NA's   :259     
+    LotArea          Street             Alley             LotShape        
+ Min.   :  1300   Length:1460        Length:1460        Length:1460       
+ 1st Qu.:  7554   Class :character   Class :character   Class :character  
+ Median :  9478   Mode  :character   Mode  :character   Mode  :character  
+ Mean   : 10517                                                           
+ 3rd Qu.: 11602                                                           
+ Max.   :215245                                                           
+                                                                          
+ LandContour         Utilities          LotConfig          LandSlope        
+ Length:1460        Length:1460        Length:1460        Length:1460       
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+ Neighborhood        Condition1         Condition2          BldgType        
+ Length:1460        Length:1460        Length:1460        Length:1460       
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+  HouseStyle         OverallQual      OverallCond      YearBuilt   
+ Length:1460        Min.   : 1.000   Min.   :1.000   Min.   :1872  
+ Class :character   1st Qu.: 5.000   1st Qu.:5.000   1st Qu.:1954  
+ Mode  :character   Median : 6.000   Median :5.000   Median :1973  
+                    Mean   : 6.099   Mean   :5.575   Mean   :1971  
+                    3rd Qu.: 7.000   3rd Qu.:6.000   3rd Qu.:2000  
+                    Max.   :10.000   Max.   :9.000   Max.   :2010  
+                                                                   
+  YearRemodAdd   RoofStyle           RoofMatl         Exterior1st       
+ Min.   :1950   Length:1460        Length:1460        Length:1460       
+ 1st Qu.:1967   Class :character   Class :character   Class :character  
+ Median :1994   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :1985                                                           
+ 3rd Qu.:2004                                                           
+ Max.   :2010                                                           
+                                                                        
+ Exterior2nd         MasVnrType          MasVnrArea      ExterQual        
+ Length:1460        Length:1460        Min.   :   0.0   Length:1460       
+ Class :character   Class :character   1st Qu.:   0.0   Class :character  
+ Mode  :character   Mode  :character   Median :   0.0   Mode  :character  
+                                       Mean   : 103.7                     
+                                       3rd Qu.: 166.0                     
+                                       Max.   :1600.0                     
+                                       NA's   :8                          
+  ExterCond          Foundation          BsmtQual           BsmtCond        
+ Length:1460        Length:1460        Length:1460        Length:1460       
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+ BsmtExposure       BsmtFinType1         BsmtFinSF1     BsmtFinType2      
+ Length:1460        Length:1460        Min.   :   0.0   Length:1460       
+ Class :character   Class :character   1st Qu.:   0.0   Class :character  
+ Mode  :character   Mode  :character   Median : 383.5   Mode  :character  
+                                       Mean   : 443.6                     
+                                       3rd Qu.: 712.2                     
+                                       Max.   :5644.0                     
+                                                                          
+   BsmtFinSF2        BsmtUnfSF       TotalBsmtSF       Heating         
+ Min.   :   0.00   Min.   :   0.0   Min.   :   0.0   Length:1460       
+ 1st Qu.:   0.00   1st Qu.: 223.0   1st Qu.: 795.8   Class :character  
+ Median :   0.00   Median : 477.5   Median : 991.5   Mode  :character  
+ Mean   :  46.55   Mean   : 567.2   Mean   :1057.4                     
+ 3rd Qu.:   0.00   3rd Qu.: 808.0   3rd Qu.:1298.2                     
+ Max.   :1474.00   Max.   :2336.0   Max.   :6110.0                     
+                                                                       
+  HeatingQC          CentralAir         Electrical          X1stFlrSF   
+ Length:1460        Length:1460        Length:1460        Min.   : 334  
+ Class :character   Class :character   Class :character   1st Qu.: 882  
+ Mode  :character   Mode  :character   Mode  :character   Median :1087  
+                                                          Mean   :1163  
+                                                          3rd Qu.:1391  
+                                                          Max.   :4692  
+                                                                        
+   X2ndFlrSF     LowQualFinSF       GrLivArea     BsmtFullBath   
+ Min.   :   0   Min.   :  0.000   Min.   : 334   Min.   :0.0000  
+ 1st Qu.:   0   1st Qu.:  0.000   1st Qu.:1130   1st Qu.:0.0000  
+ Median :   0   Median :  0.000   Median :1464   Median :0.0000  
+ Mean   : 347   Mean   :  5.845   Mean   :1515   Mean   :0.4253  
+ 3rd Qu.: 728   3rd Qu.:  0.000   3rd Qu.:1777   3rd Qu.:1.0000  
+ Max.   :2065   Max.   :572.000   Max.   :5642   Max.   :3.0000  
+                                                                 
+  BsmtHalfBath        FullBath        HalfBath       BedroomAbvGr  
+ Min.   :0.00000   Min.   :0.000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:0.00000   1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:2.000  
+ Median :0.00000   Median :2.000   Median :0.0000   Median :3.000  
+ Mean   :0.05753   Mean   :1.565   Mean   :0.3829   Mean   :2.866  
+ 3rd Qu.:0.00000   3rd Qu.:2.000   3rd Qu.:1.0000   3rd Qu.:3.000  
+ Max.   :2.00000   Max.   :3.000   Max.   :2.0000   Max.   :8.000  
+                                                                   
+  KitchenAbvGr   KitchenQual         TotRmsAbvGrd     Functional       
+ Min.   :0.000   Length:1460        Min.   : 2.000   Length:1460       
+ 1st Qu.:1.000   Class :character   1st Qu.: 5.000   Class :character  
+ Median :1.000   Mode  :character   Median : 6.000   Mode  :character  
+ Mean   :1.047                      Mean   : 6.518                     
+ 3rd Qu.:1.000                      3rd Qu.: 7.000                     
+ Max.   :3.000                      Max.   :14.000                     
+                                                                       
+   Fireplaces    FireplaceQu         GarageType         GarageYrBlt  
+ Min.   :0.000   Length:1460        Length:1460        Min.   :1900  
+ 1st Qu.:0.000   Class :character   Class :character   1st Qu.:1961  
+ Median :1.000   Mode  :character   Mode  :character   Median :1980  
+ Mean   :0.613                                         Mean   :1979  
+ 3rd Qu.:1.000                                         3rd Qu.:2002  
+ Max.   :3.000                                         Max.   :2010  
+                                                       NA's   :81    
+ GarageFinish         GarageCars      GarageArea      GarageQual       
+ Length:1460        Min.   :0.000   Min.   :   0.0   Length:1460       
+ Class :character   1st Qu.:1.000   1st Qu.: 334.5   Class :character  
+ Mode  :character   Median :2.000   Median : 480.0   Mode  :character  
+                    Mean   :1.767   Mean   : 473.0                     
+                    3rd Qu.:2.000   3rd Qu.: 576.0                     
+                    Max.   :4.000   Max.   :1418.0                     
+                                                                       
+  GarageCond         PavedDrive          WoodDeckSF      OpenPorchSF    
+ Length:1460        Length:1460        Min.   :  0.00   Min.   :  0.00  
+ Class :character   Class :character   1st Qu.:  0.00   1st Qu.:  0.00  
+ Mode  :character   Mode  :character   Median :  0.00   Median : 25.00  
+                                       Mean   : 94.24   Mean   : 46.66  
+                                       3rd Qu.:168.00   3rd Qu.: 68.00  
+                                       Max.   :857.00   Max.   :547.00  
+                                                                        
+ EnclosedPorch      X3SsnPorch      ScreenPorch        PoolArea      
+ Min.   :  0.00   Min.   :  0.00   Min.   :  0.00   Min.   :  0.000  
+ 1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:  0.00   1st Qu.:  0.000  
+ Median :  0.00   Median :  0.00   Median :  0.00   Median :  0.000  
+ Mean   : 21.95   Mean   :  3.41   Mean   : 15.06   Mean   :  2.759  
+ 3rd Qu.:  0.00   3rd Qu.:  0.00   3rd Qu.:  0.00   3rd Qu.:  0.000  
+ Max.   :552.00   Max.   :508.00   Max.   :480.00   Max.   :738.000  
+                                                                     
+    PoolQC             Fence           MiscFeature           MiscVal        
+ Length:1460        Length:1460        Length:1460        Min.   :    0.00  
+ Class :character   Class :character   Class :character   1st Qu.:    0.00  
+ Mode  :character   Mode  :character   Mode  :character   Median :    0.00  
+                                                          Mean   :   43.49  
+                                                          3rd Qu.:    0.00  
+                                                          Max.   :15500.00  
+                                                                            
+     MoSold           YrSold       SaleType         SaleCondition     
+ Min.   : 1.000   Min.   :2006   Length:1460        Length:1460       
+ 1st Qu.: 5.000   1st Qu.:2007   Class :character   Class :character  
+ Median : 6.000   Median :2008   Mode  :character   Mode  :character  
+ Mean   : 6.322   Mean   :2008                                        
+ 3rd Qu.: 8.000   3rd Qu.:2009                                        
+ Max.   :12.000   Max.   :2010                                        
+                                                                      
+   SalePrice     
+ Min.   : 34900  
+ 1st Qu.:129975  
+ Median :163000  
+ Mean   :180921  
+ 3rd Qu.:214000  
+ Max.   :755000  
+                 </code></pre>
+</div>
+</div>
+</section>
+<section id="tipo-de-cada-una-de-las-variables-de-dataset." class="level3">
+<h3 class="anchored" data-anchor-id="tipo-de-cada-una-de-las-variables-de-dataset.">2. Tipo de cada una de las variables de dataset.</h3>
+<p>ID: Categorica</p>
+<p>SalePrice: Cuantitativa MSSubClass: Cualitativa MSZoning: Cualitativa LotFrontage: Cuantitativa LotArea: Cuantitativa Street: Cualitativa Alley: Cualitativa LotShape: Cualitativa LandContour: Cualitativa Utilities: Cualitativa LotConfig: Cualitativsa LandSlope: Cualitativa Neighborhood: Cualitativa Condition1: Cualitativa Condition2: Cualitativa BldgType: Cualitativa HouseStyle: Cualitativa OverallQual: Cuantitativa OverallCond: Cuantitativa YearBuilt: Cualitativa YearRemodAdd: Cualitativa RoofStyle: Cualitativa RoofMatl: Cualitativa Exterior1st: Cualitativa Exterior2nd: Cualitativa MasVnrType: Cualitativa MasVnrArea: Cuantitativa ExterQual: Cualitativa ExterCond: Cualitativa Foundation: Cualitativa BsmtQual: Cualitativa BsmtCond: Cualitativa BsmtExposure: Cualitativa BsmtFinType1: Cualitativa BsmtFinSF1: Cuantitativa BsmtFinType2: Cualitativa BsmtFinSF2: Cuantitativa BsmtUnfSF: Cuantitativa TotalBsmtSF: Cuantitativa Heating: Cualitativa HeatingQC: Cualitativa CentralAir: Cualitativa Electrical: Cualitativa 1stFlrSF: Cuantitativa 2ndFlrSF: Cuantitativa LowQualFinSF:Cualitativa GrLivArea: Cuantitativa BsmtFullBath: Cuantitativa BsmtHalfBath: Cuantitativa FullBath: Cuantitativa HalfBath: Cuantitativa Bedroom: Cuantitativa Kitchen: Cuantitativa KitchenQual: Cualitativa TotRmsAbvGrd: Cuantitativa Functional: Cualitativa Fireplaces: Cuantitativa FireplaceQu: Cualitativa GarageType: Cualitativa GarageYrBlt: Cualitativa GarageFinish: Cualitativa GarageCars: Cuantitativa GarageArea: Cuantitativa GarageQual: Cualitativa GarageCond: Cualitativa PavedDrive: Cualitativa WoodDeckSF: Cuantitativa OpenPorchSF: Cuantitativa EnclosedPorch: Cuantitativa 3SsnPorch: Cuantitativa ScreenPorch: Cuantitativa PoolArea: Cuantitativa PoolQC: Cualitativa Fence: Cualitativa MiscFeature: Cualitativa MiscVal: Cuantitativa MoSold: Cualitativa YrSold: Cualitativa SaleType: Cualitativa SaleCondition: Cualitativa</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Id    MSSubClass      MSZoning   LotFrontage       LotArea 
+    "integer"     "integer"   "character"     "integer"     "integer" 
+       Street         Alley      LotShape   LandContour     Utilities 
+  "character"   "character"   "character"   "character"   "character" 
+    LotConfig     LandSlope  Neighborhood    Condition1    Condition2 
+  "character"   "character"   "character"   "character"   "character" 
+     BldgType    HouseStyle   OverallQual   OverallCond     YearBuilt 
+  "character"   "character"     "integer"     "integer"     "integer" 
+ YearRemodAdd     RoofStyle      RoofMatl   Exterior1st   Exterior2nd 
+    "integer"   "character"   "character"   "character"   "character" 
+   MasVnrType    MasVnrArea     ExterQual     ExterCond    Foundation 
+  "character"     "integer"   "character"   "character"   "character" 
+     BsmtQual      BsmtCond  BsmtExposure  BsmtFinType1    BsmtFinSF1 
+  "character"   "character"   "character"   "character"     "integer" 
+ BsmtFinType2    BsmtFinSF2     BsmtUnfSF   TotalBsmtSF       Heating 
+  "character"     "integer"     "integer"     "integer"   "character" 
+    HeatingQC    CentralAir    Electrical     X1stFlrSF     X2ndFlrSF 
+  "character"   "character"   "character"     "integer"     "integer" 
+ LowQualFinSF     GrLivArea  BsmtFullBath  BsmtHalfBath      FullBath 
+    "integer"     "integer"     "integer"     "integer"     "integer" 
+     HalfBath  BedroomAbvGr  KitchenAbvGr   KitchenQual  TotRmsAbvGrd 
+    "integer"     "integer"     "integer"   "character"     "integer" 
+   Functional    Fireplaces   FireplaceQu    GarageType   GarageYrBlt 
+  "character"     "integer"   "character"   "character"     "integer" 
+ GarageFinish    GarageCars    GarageArea    GarageQual    GarageCond 
+  "character"     "integer"     "integer"   "character"   "character" 
+   PavedDrive    WoodDeckSF   OpenPorchSF EnclosedPorch    X3SsnPorch 
+  "character"     "integer"     "integer"     "integer"     "integer" 
+  ScreenPorch      PoolArea        PoolQC         Fence   MiscFeature 
+    "integer"     "integer"   "character"   "character"   "character" 
+      MiscVal        MoSold        YrSold      SaleType SaleCondition 
+    "integer"     "integer"     "integer"   "character"   "character" 
+    SalePrice 
+    "integer" </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="pruebas-de-normalidad-para-variables-cuantitativas-y-tablas-de-frecuencia-para-variables-cualitativas." class="level2">
+<h2 class="anchored" data-anchor-id="pruebas-de-normalidad-para-variables-cuantitativas-y-tablas-de-frecuencia-para-variables-cualitativas.">3. Pruebas de normalidad para variables cuantitativas y tablas de frecuencia para variables cualitativas.</h2>
+<div class="cell">
+
+</div>
+<section id="qqnorms" class="level3">
+<h3 class="anchored" data-anchor-id="qqnorms">Qqnorms</h3>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-7.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-8.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-9.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-10.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-11.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-12.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-13.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-14.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-15.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-16.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-17.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-18.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-19.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-20.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-21.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-22.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-23.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-24.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-25.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-26.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-27.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-28.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-29.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-30.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="HDT3_files/figure-html/unnamed-chunk-5-31.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="prueba-de-normalidad-con-lilliefors" class="level3">
+<h3 class="anchored" data-anchor-id="prueba-de-normalidad-con-lilliefors">Prueba de normalidad con lilliefors</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    SalePrice   LotFrontage       LotArea   OverallQual   OverallCond 
+ 6.341850e-61  3.713846e-35 2.119479e-262  2.200654e-97  0.000000e+00 
+   MasVnrArea    BsmtFinSF1    BsmtFinSF2     BsmtUnfSF   TotalBsmtSF 
+ 0.000000e+00 4.761457e-111  0.000000e+00  7.957117e-39  5.446163e-22 
+    X1stFlrSF     X2ndFlrSF  LowQualFinSF     GrLivArea  BsmtFullBath 
+ 3.437171e-29  0.000000e+00  0.000000e+00  3.669320e-17  0.000000e+00 
+ BsmtHalfBath      FullBath      HalfBath  BedroomAbvGr  KitchenAbvGr 
+ 0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00 
+ TotRmsAbvGrd    Fireplaces    GarageCars    GarageArea    WoodDeckSF 
+5.930204e-114  0.000000e+00  0.000000e+00  1.275308e-21  0.000000e+00 
+  OpenPorchSF EnclosedPorch    X3SsnPorch   ScreenPorch      PoolArea 
+9.473866e-240  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00 
+      MiscVal 
+ 0.000000e+00 </code></pre>
+</div>
+</div>
+<p>Se rechaza la hipotesis nula de normalidad para las variables:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    SalePrice   LotFrontage       LotArea   OverallQual   OverallCond 
+ 6.341850e-61  3.713846e-35 2.119479e-262  2.200654e-97  0.000000e+00 
+   MasVnrArea    BsmtFinSF1    BsmtFinSF2     BsmtUnfSF   TotalBsmtSF 
+ 0.000000e+00 4.761457e-111  0.000000e+00  7.957117e-39  5.446163e-22 
+    X1stFlrSF     X2ndFlrSF  LowQualFinSF     GrLivArea  BsmtFullBath 
+ 3.437171e-29  0.000000e+00  0.000000e+00  3.669320e-17  0.000000e+00 
+ BsmtHalfBath      FullBath      HalfBath  BedroomAbvGr  KitchenAbvGr 
+ 0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00 
+ TotRmsAbvGrd    Fireplaces    GarageCars    GarageArea    WoodDeckSF 
+5.930204e-114  0.000000e+00  0.000000e+00  1.275308e-21  0.000000e+00 
+  OpenPorchSF EnclosedPorch    X3SsnPorch   ScreenPorch      PoolArea 
+9.473866e-240  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00 
+      MiscVal 
+ 0.000000e+00 </code></pre>
+</div>
+</div>
+<p>Esto se debe porque el valor es menor a o.5 y para que sea normal debe ser mayor.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
